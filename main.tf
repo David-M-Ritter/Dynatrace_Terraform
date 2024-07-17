@@ -244,15 +244,8 @@ resource "dynatrace_web_application" "Ritter" {
 
 }
 
-
-
-
-
-
-
 resource "dynatrace_application_detection_rule_v2" "RitterTest" {
   application_id = dynatrace_web_application.Ritter.id
   matcher        = "DOMAIN_MATCHES"
   pattern        = "TerraformTest"
 }
-
