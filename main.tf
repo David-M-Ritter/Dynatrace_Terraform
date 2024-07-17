@@ -135,7 +135,7 @@ resource "dynatrace_web_application" "Ritter" {
   }
   session_replay_config {
     enabled                                = false
-    cost_control_percentage                = 100
+    cost_control_percentage                = 10
     enable_css_resource_capturing          = true
     css_resource_capturing_exclusion_rules = []
   }
