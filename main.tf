@@ -1,5 +1,5 @@
 resource "dynatrace_web_application" "Ritter" {
-  name                                 = "Ritter"
+  name                                 = var.app_name
   type                                 = "AUTO_INJECTED"
   cost_control_user_session_percentage = 100
   load_action_key_performance_metric   = "VISUALLY_COMPLETE"
@@ -248,4 +248,8 @@ resource "dynatrace_application_detection_rule_v2" "RitterTest" {
   application_id = dynatrace_web_application.Ritter.id
   matcher        = "DOMAIN_MATCHES"
   pattern        = "TerraformTest"
+}
+
+output "dynatrace_IDs" {
+  value = dynatrace_application_detection_rule_v2.RitterTest
 }
