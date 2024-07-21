@@ -245,11 +245,13 @@ resource "dynatrace_web_application" "Ritter" {
 }
 
 resource "dynatrace_application_detection_rule_v2" "RitterTest" {
+  depends_on = [ dynatrace_web_application.Ritter ]
   application_id = dynatrace_web_application.Ritter.id
   matcher        = "DOMAIN_MATCHES"
   pattern        = "TerraformTest"
 }
 
 output "dynatrace_IDs" {
+  depends_on = [ dynatrace_application_detection_rule_v2.RitterTest ]
   value = dynatrace_application_detection_rule_v2.RitterTest
 }
